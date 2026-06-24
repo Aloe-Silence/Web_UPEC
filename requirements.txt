@@ -2,5 +2,5 @@ streamlit
 plotly
 pandas
 numpy
-# Install BayesFusion PySMILE according to BayesFusion's official instructions.
-# Do not add the unrelated PyPI package named "pysmile".
+# BayesFusion PySMILE is loaded from pysmile_linux/pysmile.so by
+# pipeline_dbn_service.py. Do not add the unrelated PyPI package named "pysmile".
