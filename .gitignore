@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+# Local secrets and licenses
+pysmile_license.py
+.env
+.env.*
+
+# Streamlit local state
+.streamlit/secrets.toml
+
+# Local/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Codex/local workspace metadata
+.agents/
+.codex/
+
+# Manuscript drafts and temporary outputs
+Paper.docx
+~$*
+*.tmp
