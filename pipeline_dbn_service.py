@@ -1,17 +1,38 @@
 """
 Service layer for the web-enabled DBN pipeline corrosion assessment platform.
 
-The PySMILE license is intentionally loaded from a local, non-versioned
-environment variables or a local, non-versioned ``pysmile_license.py`` file.
-Do not commit personal BayesFusion license data to public repositories.
+The PySMILE license is intentionally loaded from environment variables or a
+local, non-versioned ``pysmile_license.py`` file. Do not commit personal
+BayesFusion license data to public repositories.
 """
 
 import base64
+import importlib
 import os
+import sys
+from pathlib import Path
 from threading import Lock
 from typing import Dict
 
-import pysmile
+
+def _load_pysmile():
+    """Import PySMILE, using the bundled Linux binary when needed."""
+    try:
+        return importlib.import_module("pysmile")
+    except ModuleNotFoundError:
+        binary_dir = Path(__file__).with_name("pysmile_linux")
+        binary_path = binary_dir / "pysmile.so"
+        if not binary_path.exists():
+            raise RuntimeError(
+                "BayesFusion PySMILE is not installed and the bundled "
+                "pysmile_linux/pysmile.so file is missing."
+            )
+
+        sys.path.insert(0, str(binary_dir))
+        return importlib.import_module("pysmile")
+
+
+pysmile = _load_pysmile()
 
 
 _LICENSE_LOCK = Lock()
