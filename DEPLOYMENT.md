@@ -7,6 +7,7 @@ This folder is intended for GitHub upload or cloud deployment.
 - Streamlit dashboard code
 - DBN service layer
 - `DBN-GZ.xdsl` model
+- `pysmile_linux/pysmile.so` BayesFusion PySMILE Linux binary for Python 3.12
 - Streamlit theme configuration
 - dependency list
 - example PySMILE license file
