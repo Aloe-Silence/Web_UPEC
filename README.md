@@ -17,6 +17,8 @@ The platform provides two interactive workspaces:
 - `pipeline_web_final.py`: Streamlit dashboard.
 - `pipeline_dbn_service.py`: PySMILE service layer for DBN inference.
 - `DBN-GZ.xdsl`: GeNIe/SMILE DBN model used by the web application.
+- `pysmile_linux/pysmile.so`: BayesFusion PySMILE Linux binary for
+  Streamlit Cloud deployment with Python 3.12.
 - `.streamlit/config.toml`: Streamlit theme configuration.
 - `pysmile_license.example.py`: template for local PySMILE license setup.
 - `STREAMLIT_CLOUD.md`: step-by-step Streamlit Community Cloud deployment guide.
@@ -92,10 +94,11 @@ dependencies:
 pip install -r requirements.txt
 ```
 
-Install **BayesFusion PySMILE** according to the BayesFusion instructions for
-your operating system and Python version. Do not install the unrelated PyPI
-package named `pysmile`; it is not the Bayesian network inference library used
-by this app.
+For Streamlit Cloud deployment, the repository includes the BayesFusion PySMILE
+Linux binary for Python 3.12 under `pysmile_linux/pysmile.so`. The service layer
+automatically loads this file if `import pysmile` is not available. Do not
+install the unrelated PyPI package named `pysmile`; it is not the Bayesian
+network inference library used by this app.
 
 ## Run The App
 
